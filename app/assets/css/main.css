@@ -1,0 +1,30 @@
+:root {
+  color-scheme: light;
+  --primary-color: #ff0000;
+  --bg-color: #ffffff;
+  --text-color: #111111;
+  --border-color: #e5e7eb;
+  --header-bg: #fff5f5;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --primary-color: #ff8080;
+  --bg-color: #111214;
+  --text-color: #f3f4f6;
+  --border-color: #2c2f36;
+  --header-bg: #1b1d21;
+}
+
+html,
+body,
+#__nuxt {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
