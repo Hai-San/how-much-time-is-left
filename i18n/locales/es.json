@@ -1,0 +1,12 @@
+{
+  "app": { "title": "Pomodoro" },
+  "phase": { "focus": "Enfoque", "short": "Descanso", "long": "Descanso largo" },
+  "controls": { "play": "Iniciar", "pause": "Pausar", "reset": "Reiniciar" },
+  "goal": { "label": "Meta", "worked": "Trabajado", "hours": "h", "minutes": "m" },
+  "pip": {
+    "note": "Temporizador abierto en ventana flotante",
+    "open": "Abrir ventana flotante",
+    "close": "Cerrar ventana flotante"
+  },
+  "theme": { "label": "Tema", "dark": "Oscuro", "light": "Claro" }
+}

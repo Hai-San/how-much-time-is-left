@@ -1,0 +1,12 @@
+{
+  "app": { "title": "Pomodoro" },
+  "phase": { "focus": "Focus", "short": "Break", "long": "Long break" },
+  "controls": { "play": "Play", "pause": "Pause", "reset": "Reset" },
+  "goal": { "label": "Goal", "worked": "Worked", "hours": "h", "minutes": "m" },
+  "pip": {
+    "note": "Timer open in floating window",
+    "open": "Open floating window",
+    "close": "Close floating window"
+  },
+  "theme": { "label": "Theme", "dark": "Dark", "light": "Light" }
+}

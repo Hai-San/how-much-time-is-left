@@ -1,37 +1,60 @@
 <script setup>
-const appConfig = useAppConfig()
+const { t } = useI18n()
+
+useHead({ title: () => t('app.title') })
 </script>
 
 <template>
   <div :class="$style.appShell">
     <header :class="$style.appHeader">
-      <h1 :class="$style.appTitle">{{ appConfig.title }}</h1>
-      <ThemeController />
+      <h1 :class="$style.appTitle">{{ $t('app.title') }}</h1>
+      <div :class="$style.appActions">
+        <LocaleSwitcher />
+        <ThemeController />
+      </div>
     </header>
-    <NuxtWelcome />
+    <main :class="$style.appMain">
+      <PomodoroTimer />
+    </main>
   </div>
 </template>
 
 <style module>
 .appShell {
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
-  background: var(--bg-color);
-  color: var(--text-color);
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.appMain {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3xl) var(--space-lg);
 }
 
 .appHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 1.25rem;
-  border-bottom: 1px solid var(--border-color);
-  background: var(--header-bg);
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: var(--border-width) solid var(--color-border);
+  background: var(--color-header-bg);
 }
 
 .appTitle {
   margin: 0;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--primary-color);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+}
+
+.appActions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
 }
 </style>

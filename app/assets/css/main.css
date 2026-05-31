@@ -1,19 +1,65 @@
 :root {
+  /* Palette (raw primitives) */
+  --color-white: #ffffff;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-800: #2c2f36;
+  --color-gray-850: #1b1d21;
+  --color-gray-900: #111111;
+  --color-gray-950: #111214;
+  --color-red-50: #fff5f5;
+  --color-red-300: #ff8080;
+  --color-red-500: #ff0000;
+
+  /* Spacing scale */
+  --space-3xs: 2px;
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 20px;
+  --space-xl: 24px;
+  --space-2xl: 28px;
+  --space-3xl: 34px;
+  --space-4xl: 40px;
+  --space-5xl: 48px;
+  --space-6xl: 56px;
+
+  /* Typography */
+  --font-size-md: 1rem;
+  --font-size-lg: 1.1rem;
+  --font-size-xl: 1.25rem;
+  --font-size-display: clamp(4rem, 18vw, 9rem);
+  --font-weight-normal: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --letter-spacing-wide: 0.05em;
+  --line-height-none: 1;
+
+  /* Radius & border */
+  --radius-md: 0.5rem;
+  --border-width: 1px;
+
+  /* Motion */
+  --duration-base: 0.2s;
+  --ease-standard: ease;
+
+  /* Semantic tokens (light) */
   color-scheme: light;
-  --primary-color: #ff0000;
-  --bg-color: #ffffff;
-  --text-color: #111111;
-  --border-color: #e5e7eb;
-  --header-bg: #fff5f5;
+  --color-primary: var(--color-red-500);
+  --color-bg: var(--color-white);
+  --color-text: var(--color-gray-900);
+  --color-border: var(--color-gray-200);
+  --color-header-bg: var(--color-red-50);
 }
 
 :root[data-theme='dark'] {
   color-scheme: dark;
-  --primary-color: #ff8080;
-  --bg-color: #111214;
-  --text-color: #f3f4f6;
-  --border-color: #2c2f36;
-  --header-bg: #1b1d21;
+  --color-primary: var(--color-red-300);
+  --color-bg: var(--color-gray-950);
+  --color-text: var(--color-gray-100);
+  --color-border: var(--color-gray-800);
+  --color-header-bg: var(--color-gray-850);
 }
 
 html,
@@ -24,7 +70,8 @@ body,
 
 body {
   margin: 0;
-  background: var(--bg-color);
-  color: var(--text-color);
-  transition: background-color 0.2s ease, color 0.2s ease;
+  background: var(--color-bg);
+  color: var(--color-text);
+  transition: background-color var(--duration-base) var(--ease-standard),
+    color var(--duration-base) var(--ease-standard);
 }
