@@ -11,49 +11,72 @@ const {
   togglePip,
   isPipActive,
   pipSupported,
-} = usePomodoro()
+} = usePomodoro();
 
-const pipContent = ref(null)
+const pipContent = ref(null);
 
 const onTogglePip = () => {
   if (pipContent.value) {
-    togglePip(pipContent.value)
+    togglePip(pipContent.value);
   }
-}
+};
 </script>
 
 <template>
   <section :class="$style.pomodoro">
-    <div ref="pipContent" :class="$style.pipContent">
-      <p :class="$style.phase">{{ phaseLabel }}</p>
+    <div
+      ref="pipContent"
+      :class="$style.pipContent"
+    >
+      <h2 :class="$style.phase">{{ phaseLabel }}</h2>
+
       <p :class="$style.time">{{ formattedTime }}</p>
-      <div :class="$style.controls">
-        <BaseButton @click="toggle">
-          {{ isRunning ? $t('controls.pause') : $t('controls.play') }}
-        </BaseButton>
-        <BaseButton @click="reset">
-          {{ $t('controls.reset') }}
-        </BaseButton>
-      </div>
     </div>
-    <p v-show="isPipActive" :class="$style.pipNote">{{ $t('pip.note') }}</p>
+    <div :class="$style.controls">
+      <BaseButton @click="toggle">
+        {{ isRunning ? $t('controls.pause') : $t('controls.play') }}
+      </BaseButton>
+      <BaseButton @click="reset">
+        {{ $t('controls.reset') }}
+      </BaseButton>
+    </div>
+    <p
+      v-show="isPipActive"
+      :class="$style.pipNote"
+    >
+      {{ $t('pip.note') }}
+    </p>
     <div :class="$style.divider" />
     <div :class="$style.goal">
       <BaseCard :class="$style.field">
-        <span :class="$style.fieldLabel">{{ $t('goal.label') }}</span>
+        <h3 :class="$style.fieldLabel">{{ $t('goal.label') }}</h3>
         <span :class="$style.inputs">
-          <input :class="$style.input" type="number" min="0" v-model.number="goalHours" />
+          <input
+            v-model.number="goalHours"
+            :class="$style.input"
+            type="number"
+            min="0"
+          />
           <span :class="$style.unit">{{ $t('goal.hours') }}</span>
-          <input :class="$style.input" type="number" min="0" max="59" v-model.number="goalMinutes" />
+          <input
+            v-model.number="goalMinutes"
+            :class="$style.input"
+            type="number"
+            min="0"
+            max="59"
+          />
           <span :class="$style.unit">{{ $t('goal.minutes') }}</span>
         </span>
       </BaseCard>
       <BaseCard :class="$style.worked">
-        <span :class="$style.fieldLabel">{{ $t('goal.worked') }}</span>
+        <h3 :class="$style.fieldLabel">{{ $t('goal.worked') }}</h3>
         <span :class="$style.workedValue">{{ workedFormatted }}</span>
       </BaseCard>
     </div>
-    <BaseButton v-if="pipSupported" @click="onTogglePip">
+    <BaseButton
+      v-if="pipSupported"
+      @click="onTogglePip"
+    >
       {{ isPipActive ? $t('pip.close') : $t('pip.open') }}
     </BaseButton>
   </section>
@@ -112,7 +135,7 @@ const onTogglePip = () => {
 
 .goal {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
   gap: var(--space-xl);
 }

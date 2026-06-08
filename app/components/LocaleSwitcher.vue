@@ -1,9 +1,7 @@
 <script setup>
-const { locale, locales, setLocale } = useI18n()
+const { locale, locales, setLocale } = useI18n();
 
-const options = computed(() =>
-  locales.value.map((l) => ({ value: l.code, label: l.name })),
-)
+const options = computed(() => locales.value.map((l) => ({ value: l.code, label: l.name })));
 </script>
 
 <template>

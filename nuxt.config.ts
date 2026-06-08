@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   ssr: false,
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/i18n'],
+  modules: ['@nuxtjs/i18n', '@nuxt/eslint'],
   css: ['~/assets/css/main.css'],
   i18n: {
     vueI18n: 'i18n.config.ts',
@@ -31,4 +31,4 @@ export default defineNuxtConfig({
       ],
     },
   },
-})
+});

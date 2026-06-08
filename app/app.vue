@@ -1,7 +1,7 @@
 <script setup>
-const { t } = useI18n()
+const { t } = useI18n();
 
-useHead({ title: () => t('app.title') })
+useHead({ title: () => t('app.title') });
 </script>
 
 <template>

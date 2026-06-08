@@ -12,98 +12,99 @@ const props = defineProps({
     type: String,
     default: undefined,
   },
-})
+});
 
-const emit = defineEmits(['update:modelValue'])
+const emit = defineEmits(['update:modelValue']);
 
-const rootRef = ref(null)
-const open = ref(false)
-const highlighted = ref(-1)
+const rootRef = ref(null);
+const open = ref(false);
+const highlighted = ref(-1);
 
-const selectedOption = computed(() =>
-  props.options.find((o) => o.value === props.modelValue),
-)
+const selectedOption = computed(() => props.options.find((o) => o.value === props.modelValue));
 
-const selectedLabel = computed(() => selectedOption.value?.label ?? '')
+const selectedLabel = computed(() => selectedOption.value?.label ?? '');
 
 const close = () => {
-  open.value = false
-}
+  open.value = false;
+};
 
 const openMenu = () => {
-  open.value = true
-  highlighted.value = props.options.findIndex((o) => o.value === props.modelValue)
-}
+  open.value = true;
+  highlighted.value = props.options.findIndex((o) => o.value === props.modelValue);
+};
 
 const select = (option) => {
-  emit('update:modelValue', option.value)
-  close()
-}
+  emit('update:modelValue', option.value);
+  close();
+};
 
 const onTriggerClick = () => {
   if (open.value) {
-    close()
+    close();
   } else {
-    openMenu()
+    openMenu();
   }
-}
+};
 
 const move = (delta) => {
   if (!open.value) {
-    openMenu()
-    return
+    openMenu();
+    return;
   }
 
-  const count = props.options.length
+  const count = props.options.length;
   if (count === 0) {
-    return
+    return;
   }
 
-  highlighted.value = (highlighted.value + delta + count) % count
-}
+  highlighted.value = (highlighted.value + delta + count) % count;
+};
 
 const onKeydown = (event) => {
   switch (event.key) {
     case 'ArrowDown':
-      event.preventDefault()
-      move(1)
-      break
+      event.preventDefault();
+      move(1);
+      break;
     case 'ArrowUp':
-      event.preventDefault()
-      move(-1)
-      break
+      event.preventDefault();
+      move(-1);
+      break;
     case 'Enter':
     case ' ':
-      event.preventDefault()
+      event.preventDefault();
       if (open.value && props.options[highlighted.value]) {
-        select(props.options[highlighted.value])
+        select(props.options[highlighted.value]);
       } else {
-        onTriggerClick()
+        onTriggerClick();
       }
-      break
+      break;
     case 'Escape':
-      close()
-      break
+      close();
+      break;
   }
-}
+};
 
 const onDocumentMousedown = (event) => {
   if (rootRef.value && !rootRef.value.contains(event.target)) {
-    close()
+    close();
   }
-}
+};
 
 onMounted(() => {
-  document.addEventListener('mousedown', onDocumentMousedown)
-})
+  document.addEventListener('mousedown', onDocumentMousedown);
+});
 
 onBeforeUnmount(() => {
-  document.removeEventListener('mousedown', onDocumentMousedown)
-})
+  document.removeEventListener('mousedown', onDocumentMousedown);
+});
 </script>
 
 <template>
-  <div ref="rootRef" :class="$style.root">
+  <div
+    ref="rootRef"
+    :class="$style.root"
+  >
     <button
       type="button"
       :class="$style.trigger"
@@ -114,9 +115,17 @@ onBeforeUnmount(() => {
       @keydown="onKeydown"
     >
       <span>{{ selectedLabel }}</span>
-      <span :class="[$style.chevron, open && $style.chevronOpen]" aria-hidden="true">▾</span>
+      <span
+        :class="[$style.chevron, open && $style.chevronOpen]"
+        aria-hidden="true"
+        >▾</span
+      >
     </button>
-    <ul v-if="open" :class="$style.list" role="listbox">
+    <ul
+      v-if="open"
+      :class="$style.list"
+      role="listbox"
+    >
       <li
         v-for="(option, index) in options"
         :key="option.value"
