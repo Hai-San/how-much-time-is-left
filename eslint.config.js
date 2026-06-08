@@ -5,7 +5,6 @@ import pluginVue from 'eslint-plugin-vue';
 import vueParser from 'vue-eslint-parser';
 import tsParser from '@typescript-eslint/parser';
 import babelParser from '@babel/eslint-parser';
-import typegen from 'eslint-typegen';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 
 const baseEslintConfig = [
