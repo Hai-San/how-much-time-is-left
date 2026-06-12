@@ -1,9 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
 export default defineNuxtConfig({
   ssr: false,
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/i18n', '@nuxt/eslint'],
+  modules: ['@nuxtjs/i18n', '@nuxt/eslint', 'nuxt-svgo'],
   css: ['~/assets/css/main.css'],
   i18n: {
     vueI18n: 'i18n.config.ts',
@@ -11,8 +12,8 @@ export default defineNuxtConfig({
     defaultLocale: 'en',
     locales: [
       { code: 'en', language: 'en-US', name: 'English', file: 'en.json' },
-      { code: 'pt', language: 'pt-BR', name: 'Portugues', file: 'pt.json' },
-      { code: 'es', language: 'es-ES', name: 'Espanol', file: 'es.json' },
+      { code: 'pt', language: 'pt-BR', name: 'Português', file: 'pt.json' },
+      { code: 'es', language: 'es-ES', name: 'Español', file: 'es.json' },
     ],
     detectBrowserLanguage: {
       useCookie: true,
@@ -24,9 +25,7 @@ export default defineNuxtConfig({
     head: {
       script: [
         {
-          innerHTML:
-            "(function(){try{var t=localStorage.getItem('theme');if(t!=='dark'&&t!=='light'){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();",
-          tagPosition: 'head',
+          src: '/theme-init.js',
         },
       ],
     },

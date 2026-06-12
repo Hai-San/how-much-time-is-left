@@ -1,4 +1,5 @@
 // @ts-check
+import withNuxt from './.nuxt/eslint.config.mjs';
 import globals from 'globals';
 import pluginJs from '@eslint/js';
 import pluginVue from 'eslint-plugin-vue';
@@ -50,10 +51,4 @@ const baseEslintConfig = [
   },
 ];
 
-export default [
-  ...baseEslintConfig,
-  {
-    name: 'ignore',
-    ignores: ['.nuxt'],
-  },
-];
+export default withNuxt([...baseEslintConfig]);

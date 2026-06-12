@@ -1,51 +1,59 @@
 {
-  // "[scss]": {
-  //   "editor.defaultFormatter": "stylelint.vscode-stylelint",
-  //   "editor.formatOnSave": false,
-  //   "editor.codeActionsOnSave": {
-  //     "source.fixAll.stylelint": "explicit"
-  //   }
-  // },
-  // "[javascript]": {
-  //   "editor.formatOnSave": false,
-  //   "editor.codeActionsOnSave": {
-  //     "source.fixAll.eslint": "explicit"
-  //   }
-  // },
-  // "[vue]": {
-  //   "editor.formatOnSave": false,
-  //   "editor.defaultFormatter": "Vue.volar",
-  //   "editor.codeActionsOnSave": {
-  //     "source.fixAll.eslint": "explicit",
-  //     "source.fixAll.stylelint": "explicit"
-  //   }
-  // },
-  // "[typescript]": {
-  //   "editor.codeActionsOnSave": {
-  //     "source.fixAll.eslint": "never"
-  //   }
-  // },
-  // "css.validate": false,
-  // "less.validate": false,
-  // "scss.validate": false,
-  // "stylelint.validate": [
-  //   "css",
-  //   "vue",
-  //   "scss"
-  // ],
-  // // "eslint.validate": ["javascript", "typescript", "vue"],
-  // // "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-  // // "html.format.wrapAttributes": "force-expand-multiline",
-  // "editor.wordWrap": "wordWrapColumn",
-  // "files.eol": "\n",
-  // "files.insertFinalNewline": true,
-  // "editor.tabSize": 2,
-  // "editor.detectIndentation": false,
-  // "editor.formatOnSave": true,
-  // "editor.formatOnSaveMode": "file",
-  // "editor.snippetSuggestions": "top",
-  // "html.format.wrapLineLength": 120,
-  // "editor.minimap.maxColumn": 120,
-  // "editor.wordWrapColumn": 120,
-  // "eslint.useFlatConfig": true
+  "[scss]": {
+    "editor.defaultFormatter": "stylelint.vscode-stylelint",
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.stylelint": "explicit"
+    }
+  },
+  "[javascript]": {
+    "editor.formatOnSave": false,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+  "[vue]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": "Vue.volar",
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit",
+      "source.fixAll.stylelint": "explicit"
+    }
+  },
+  "[typescript]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "never"
+    }
+  },
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "stylelint.validate": [
+    "css",
+    "vue",
+    "scss"
+  ],
+  "eslint.validate": ["javascript", "typescript", "vue"],
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "html.format.wrapAttributes": "force-expand-multiline",
+  "editor.wordWrap": "wordWrapColumn",
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "file",
+  "editor.snippetSuggestions": "top",
+  "html.format.wrapLineLength": 120,
+  "editor.minimap.maxColumn": 120,
+  "editor.wordWrapColumn": 120,
+  "eslint.useFlatConfig": true,
+  "github.copilot.renameSuggestions.triggerAutomatically": false,
+  "github.copilot.nextEditSuggestions.fixes": false,
+  "github.copilot.nextEditSuggestions.extendedRange": false,
+  "github.copilot.nextEditSuggestions.enabled": false,
+  "github.copilot.nextEditSuggestions.allowWhitespaceOnlyChanges": false,
+  "editor.suggest.showFunctions": false,
+  "editor.inlineSuggest.enabled": false,
+  // "eslint.runtime": "/home/haisan/.nvm/versions/node/v24.15.0/bin/node"
 }

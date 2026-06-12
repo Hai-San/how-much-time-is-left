@@ -23,67 +23,84 @@ const onTogglePip = () => {
 </script>
 
 <template>
-  <section :class="$style.pomodoro">
-    <div
-      ref="pipContent"
-      :class="$style.pipContent"
-    >
-      <h2 :class="$style.phase">{{ phaseLabel }}</h2>
-
-      <p :class="$style.time">{{ formattedTime }}</p>
-    </div>
-    <div :class="$style.controls">
-      <BaseButton @click="toggle">
-        {{ isRunning ? $t('controls.pause') : $t('controls.play') }}
-      </BaseButton>
-      <BaseButton @click="reset">
-        {{ $t('controls.reset') }}
-      </BaseButton>
-    </div>
-    <p
-      v-show="isPipActive"
-      :class="$style.pipNote"
-    >
-      {{ $t('pip.note') }}
-    </p>
-    <div :class="$style.divider" />
-    <div :class="$style.goal">
-      <BaseCard :class="$style.field">
-        <h3 :class="$style.fieldLabel">{{ $t('goal.label') }}</h3>
-        <span :class="$style.inputs">
-          <input
-            v-model.number="goalHours"
-            :class="$style.input"
-            type="number"
-            min="0"
-          />
-          <span :class="$style.unit">{{ $t('goal.hours') }}</span>
-          <input
-            v-model.number="goalMinutes"
-            :class="$style.input"
-            type="number"
-            min="0"
-            max="59"
-          />
-          <span :class="$style.unit">{{ $t('goal.minutes') }}</span>
-        </span>
-      </BaseCard>
-      <BaseCard :class="$style.worked">
-        <h3 :class="$style.fieldLabel">{{ $t('goal.worked') }}</h3>
-        <span :class="$style.workedValue">{{ workedFormatted }}</span>
-      </BaseCard>
-    </div>
+  <div :class="$style.pomodoroTimer">
     <BaseButton
       v-if="pipSupported"
+      :class="$style.pipFloatingButton"
+      :aria-label="isPipActive ? $t('pip.close') : $t('pip.open')"
+      :title="isPipActive ? $t('pip.close') : $t('pip.open')"
       @click="onTogglePip"
     >
-      {{ isPipActive ? $t('pip.close') : $t('pip.open') }}
+      <BaseIcon
+        :name="isPipActive ? 'pip-close' : 'pip-open'"
+        :class="$style.pipIcon"
+        aria-hidden="true"
+      />
     </BaseButton>
-  </section>
+
+    <section :class="$style.pomodoro">
+      <div
+        ref="pipContent"
+        :class="$style.pipContent"
+      >
+        <h2 :class="$style.phase">{{ phaseLabel }}</h2>
+        <p :class="$style.time">{{ formattedTime }}</p>
+      </div>
+      <div :class="$style.controls">
+        <BaseButton @click="toggle">
+          {{ isRunning ? $t('controls.pause') : $t('controls.play') }}
+        </BaseButton>
+        <BaseButton @click="reset">
+          {{ $t('controls.reset') }}
+        </BaseButton>
+      </div>
+      <p
+        v-show="isPipActive"
+        :class="$style.pipNote"
+      >
+        {{ $t('pip.note') }}
+      </p>
+      <div :class="$style.divider" />
+      <div :class="$style.goal">
+        <BaseCard :class="$style.field">
+          <h3 :class="$style.fieldLabel">{{ $t('goal.label') }}</h3>
+          <span :class="$style.inputs">
+            <input
+              v-model.number="goalHours"
+              :class="$style.input"
+              type="number"
+              min="0"
+            />
+            <span :class="$style.unit">{{ $t('goal.hours') }}</span>
+            <input
+              v-model.number="goalMinutes"
+              :class="$style.input"
+              type="number"
+              min="0"
+              max="59"
+            />
+            <span :class="$style.unit">{{ $t('goal.minutes') }}</span>
+          </span>
+        </BaseCard>
+        <BaseCard :class="$style.worked">
+          <h3 :class="$style.fieldLabel">{{ $t('goal.worked') }}</h3>
+          <span :class="$style.workedValue">{{ workedFormatted }}</span>
+        </BaseCard>
+      </div>
+    </section>
+  </div>
 </template>
 
 <style module>
+.pomodoroTimer {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: start;
+  width: 100%;
+}
+
 .pomodoro {
+  grid-column: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -180,6 +197,28 @@ const onTogglePip = () => {
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-semibold);
   font-variant-numeric: tabular-nums;
+  color: var(--color-text);
+}
+
+.pipFloatingButton {
+  grid-column: 3;
+  justify-self: end;
+  align-self: start;
+  margin-top: var(--space-md);
+  margin-right: var(--space-md);
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pipIcon {
+  width: 20px;
+  height: 20px;
+  display: block;
   color: var(--color-text);
 }
 </style>

@@ -1,7 +1,9 @@
 <script setup>
 const { t } = useI18n();
 
-useHead({ title: () => t('app.title') });
+useHead({
+  title: () => t('app.title'),
+});
 </script>
 
 <template>
@@ -31,9 +33,6 @@ useHead({ title: () => t('app.title') });
 .appMain {
   flex: 1;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-3xl) var(--space-lg);
 }
 
 .appHeader {
