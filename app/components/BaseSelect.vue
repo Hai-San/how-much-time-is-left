@@ -115,11 +115,12 @@ onBeforeUnmount(() => {
       @keydown="onKeydown"
     >
       <span>{{ selectedLabel }}</span>
-      <span
-        :class="[$style.chevron, open && $style.chevronOpen]"
+
+      <BaseIcon
+        :name="open ? 'chevron-up' : 'chevron-down'"
+        :class="$style.chevron"
         aria-hidden="true"
-        >▾</span
-      >
+      />
     </button>
     <ul
       v-if="open"
@@ -164,11 +165,9 @@ onBeforeUnmount(() => {
 }
 
 .chevron {
+  color: var(--color-text);
   transition: transform var(--duration-base) var(--ease-standard);
-}
-
-.chevronOpen {
-  transform: rotate(180deg);
+  width: 14px;
 }
 
 .list {
