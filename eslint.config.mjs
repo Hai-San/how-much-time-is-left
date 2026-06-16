@@ -48,6 +48,14 @@ const baseEslintConfig = [
         },
       },
     },
+    rules: {
+      'no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+        },
+      ],
+    },
   },
 ];
 
