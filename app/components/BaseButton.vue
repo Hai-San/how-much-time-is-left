@@ -16,14 +16,22 @@ defineProps({
   </button>
 </template>
 
-<style module>
+<style lang="scss" module>
 .baseButton {
   border: var(--border-width) solid var(--color-border);
-  background: transparent;
-  color: var(--color-text);
+  background-color: var(--button-color-background);
+  color: var(--button-color-text);
   padding: var(--space-xs) var(--space-md);
   border-radius: var(--radius-md);
   font: inherit;
   cursor: pointer;
+  transition-duration: var(--duration-base);
+  transition-timing-function: ease-in-out;
+  transition-property: color, background-color;
+
+  &:hover {
+    color: var(--button-color-text-hover);
+    background-color: var(--button-color-background-hover);
+  }
 }
 </style>

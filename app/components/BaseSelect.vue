@@ -105,7 +105,7 @@ onBeforeUnmount(() => {
     ref="rootRef"
     :class="$style.root"
   >
-    <button
+    <BaseButton
       type="button"
       :class="$style.trigger"
       :aria-label="ariaLabel"
@@ -121,7 +121,7 @@ onBeforeUnmount(() => {
         :class="$style.chevron"
         aria-hidden="true"
       />
-    </button>
+    </BaseButton>
     <ul
       v-if="open"
       :class="$style.list"
