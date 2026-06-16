@@ -107,7 +107,6 @@ onBeforeUnmount(() => {
   >
     <BaseButton
       type="button"
-      :class="$style.trigger"
       :aria-label="ariaLabel"
       aria-haspopup="listbox"
       :aria-expanded="open"
@@ -149,19 +148,6 @@ onBeforeUnmount(() => {
 .root {
   position: relative;
   display: inline-block;
-}
-
-.trigger {
-  display: flex;
-  align-items: center;
-  gap: var(--space-xs);
-  border: var(--border-width) solid var(--color-border);
-  background: transparent;
-  color: var(--color-text);
-  padding: var(--space-xs) var(--space-md);
-  border-radius: var(--radius-md);
-  font: inherit;
-  cursor: pointer;
 }
 
 .chevron {

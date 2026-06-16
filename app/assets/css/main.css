@@ -73,7 +73,7 @@
 
     /* Button tokens */
   --button-color-text: var(--color-gray-100);
-  --button-color-background: var(--color-gray-900);
+  --button-color-background: var(--color-gray-850);
   --button-color-background-hover: var(--color-black);
   --button-color-text-hover: var(--color-white);
 }

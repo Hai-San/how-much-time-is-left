@@ -18,11 +18,14 @@ defineProps({
 
 <style lang="scss" module>
 .baseButton {
+  display: flex;
+  align-items: center;
   border: var(--border-width) solid var(--color-border);
   background-color: var(--button-color-background);
   color: var(--button-color-text);
   padding: var(--space-xs) var(--space-md);
   border-radius: var(--radius-md);
+  gap: var(--space-xs);
   font: inherit;
   cursor: pointer;
   transition-duration: var(--duration-base);
